@@ -19,9 +19,10 @@ const config = {
     },
     extend: {
       colors: {
+        primary: "rgb(var(--primary))",
         foreground: "rgb(var(--foreground))",
         background: "rgb(var(--background))",
-        white: "rgb(var--white)",
+        white: "rgb(var(--white))",
         black: "rgb(var(--black))",
         red: "rgb(var(--red))",
         orange: "rgb(var(--orange))",
@@ -40,7 +41,7 @@ const config = {
         gray3: "rgb(var(--gray3))",
         gray4: "rgb(var(--gray4))",
         gray5: "rgb(var(--gray5))",
-        gray6: "rgb(var(--gray6))"
+        gray6: "rgb(var(--gray6))",
       },
       keyframes: {
         "accordion-down": {
