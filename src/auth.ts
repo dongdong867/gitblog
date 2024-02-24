@@ -1,27 +1,29 @@
-import NextAuth from "next-auth"
-import { cookies } from "next/headers"
+import NextAuth, { Session } from "next-auth"
 import GitHub from "next-auth/providers/github"
+
+export interface SessionWithToken extends Session {
+  accessToken: string
+}
 
 export const {
   handlers: { GET, POST },
   auth,
 } = NextAuth({
   providers: [GitHub({
-    clientId: process.env.AUTH_GITHUB_ID,
-    clientSecret: process.env.AUTH_GITHUB_SECRET,
     authorization: {
       url: "https://github.com/login/oauth/authorize",
       params: { scope: "read:user user:email repo" }
     }
   })],
   callbacks: {
-    async signIn(params) {
-      const cookieStore = cookies()
-      if (params.account?.access_token) {
-        cookieStore.set("api_token", params.account?.access_token!)
-        return true
+    jwt: async (params) => {
+      if (params.account && params.account.access_token) {
+        params.token.accessToken = params.account.access_token
       }
-      return false
+      return params.token
+    },
+    session: async (params) => {
+      return { ...params.session, accessToken: params.token.accessToken }
     }
   }
 })
