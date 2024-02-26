@@ -1,5 +1,7 @@
-import { cn } from "@/lib/utils";
+// components
 import { Badge } from "./ui/badge";
+// utils
+import { cn } from "@/lib/utils";
 
 const PostLabel = ({ labels }: { labels: Label[] }) => {
   return labels.length > 0 ? (
