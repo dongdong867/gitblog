@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./colors.css";
 import "./globals.css";
+import "./hljs.css"
 import ThemeProvider from "@/components/ThemeProvider";
 import Navbar from "@/components/navbar/Navbar";
 
