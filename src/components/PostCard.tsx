@@ -1,26 +1,17 @@
 // components
 import Link from "next/link";
-import Image from "next/image";
 import { BiMessageDetail } from "react-icons/bi";
 // utils
 import { cn } from "@/lib/utils";
 import PostLabel from "./PostLabel";
+import PostUser from "./PostUser";
 
 const PostCard = ({ post }: { post: Issue }) => {
   return (
     <Link href={"/" + post.number}>
       <div className={cn("container max-w-[1000px] space-y-4 py-4 text-sm")}>
         {/* USER */}
-        <div className={cn("flex place-items-center space-x-2")}>
-          <Image
-            src={post.user.avatar_url}
-            alt=""
-            width={30}
-            height={30}
-            className={cn("rounded-full")}
-          />
-          <div>{post.user.login}</div>
-        </div>
+        <PostUser size={30} user={post.user} />
 
         {/* POST */}
         <div className={cn("space-y-1 md:space-y-2")}>
