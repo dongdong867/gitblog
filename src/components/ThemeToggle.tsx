@@ -24,7 +24,6 @@ const ThemeDropdownItem = ({
   return (
     <DropdownMenuItem
       onClick={() => setTheme(themeOption.toLowerCase())}
-      className="text-base"
     >
       {themeOption}
     </DropdownMenuItem>
@@ -38,7 +37,7 @@ const ThemeToggle = () => {
         <Button
           variant={"ghost"}
           size={"icon"}
-          className="size-12 rounded-full"
+          className="size-10 rounded-full"
         >
           <MdSunny className={cn("size-full p-2 text-primary dark:hidden")} />
           <MdDarkMode
