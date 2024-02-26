@@ -21,8 +21,8 @@ const UserDropdown = ({ imageLink, email }: { imageLink: string, email: string }
         <Image
           src={imageLink}
           alt=""
-          width={50}
-          height={50}
+          width={40}
+          height={40}
           className={cn("rounded-full")}
         />
       </DropdownMenuTrigger>
@@ -32,7 +32,7 @@ const UserDropdown = ({ imageLink, email }: { imageLink: string, email: string }
         <DropdownMenuItem
           onClick={() => signOut()}
         >
-          <div className={cn("text-base text-red hover:text-red")}>Sign out</div>
+          <div className={cn("text-red hover:text-red font-medium")}>Sign out</div>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

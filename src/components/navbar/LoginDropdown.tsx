@@ -21,9 +21,9 @@ const LoginDropdown = () => {
         <Button
           variant={"ghost"}
           size={"icon"}
-          className="size-12 bg-white rounded-full"
+          className="size-10 bg-white rounded-full"
         >
-          <MdFace className={cn("size-12 text-primary")} />
+          <MdFace className={cn("size-10 text-primary")} />
         </Button>
       </DropdownMenuTrigger>
       
