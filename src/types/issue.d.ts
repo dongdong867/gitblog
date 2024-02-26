@@ -6,9 +6,6 @@ interface Issue {
   state: "open" | "close"
   comments: number
   user: User
-  labels: {
-    name: string
-    [key: string]: any
-  } []
+  labels: Label[]
   [key: string]: any
 }
