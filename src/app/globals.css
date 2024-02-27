@@ -4,11 +4,11 @@
 
 @layer base {
   pre {
-    @apply block bg-gray6 px-4 py-2 rounded-md;
+    @apply block bg-gray6 px-4 py-2 rounded-md text-clip overflow-hidden overflow-x-scroll;
   }
 
   code {
-    @apply bg-gray5 dark:bg-gray4 px-1.5 py-1 text-sm text-balance rounded-lg;
+    @apply bg-gray5 dark:bg-gray4 px-1.5 py-1 text-xs text-balance rounded-lg;
   }
 
   pre code {
