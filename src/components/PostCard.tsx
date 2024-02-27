@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BiMessageDetail } from "react-icons/bi";
 // utils
 import { cn } from "@/lib/utils";
+import { marked } from "marked";
 import PostLabel from "./PostLabel";
 import PostUser from "./PostUser";
 
@@ -21,9 +22,10 @@ const PostCard = ({ post }: { post: Issue }) => {
             {post.title}
           </div>
 
-          <div className={cn("text-base line-clamp-2 leading-tight")}>
-            {post.body}
-          </div>
+          <div
+            dangerouslySetInnerHTML={{ __html: marked(post.body) }}
+            className={cn("text-base line-clamp-2 leading-tight")}
+          />
         </div>
 
         <div className={cn("flex place-items-center pt-2 text-gray")}>
