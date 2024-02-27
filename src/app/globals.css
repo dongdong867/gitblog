@@ -19,7 +19,7 @@
     @apply my-2;
   }
 
-  a {
+  p a {
     @apply text-blue underline
   }
 
