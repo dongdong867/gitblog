@@ -1,7 +1,7 @@
-interface Comment {
+interface Message {
   id: number
   body: string
-  user: User
+  // user: User
   created_at: string
   [key: string]: any
 }
