@@ -18,4 +18,16 @@
   p {
     @apply my-2;
   }
+
+  a {
+    @apply text-blue underline
+  }
+
+  hr {
+    @apply h-0.5 bg-gray3 border-none my-8
+  }
+
+  blockquote {
+    @apply border-l-4 border-gray3 pl-4 py-px my-4
+  }
 }
