@@ -3,7 +3,7 @@ import Image from "next/image";
 // utils
 import { cn } from "@/lib/utils";
 
-const PostUser = ({ size, user }: { size: number; user: User }) => {
+const UserLabel = ({ size, user }: { size: number; user: User }) => {
   return (
     <div className={cn("flex place-items-center space-x-2")}>
       <Image
@@ -18,4 +18,4 @@ const PostUser = ({ size, user }: { size: number; user: User }) => {
   );
 };
 
-export default PostUser;
+export default UserLabel;

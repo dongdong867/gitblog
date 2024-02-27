@@ -5,14 +5,14 @@ import { BiMessageDetail } from "react-icons/bi";
 import { cn } from "@/lib/utils";
 import { marked } from "marked";
 import PostLabel from "./PostLabel";
-import PostUser from "./PostUser";
+import UserLabel from "./UserLabel";
 
 const PostCard = ({ post }: { post: Issue }) => {
   return (
     <Link href={"/" + post.number}>
       <div className={cn("container max-w-[1000px] space-y-4 py-4 text-sm")}>
         {/* USER */}
-        <PostUser size={30} user={post.user} />
+        <UserLabel size={30} user={post.user} />
 
         {/* POST */}
         <div className={cn("space-y-1 md:space-y-2")}>
