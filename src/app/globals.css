@@ -20,14 +20,49 @@
   }
 
   p a {
-    @apply text-blue underline
+    @apply text-blue;
   }
 
   hr {
-    @apply h-0.5 bg-gray3 border-none my-8
+    @apply h-0.5 bg-gray3 border-none my-8;
   }
 
   blockquote {
-    @apply border-l-4 border-gray3 pl-4 py-px my-4
+    @apply text-gray border-l-4 border-gray3 pl-4 py-px my-4;
+  }
+
+  .preview {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-semibold py-2;
+    }
+
+    h1 {
+      @apply text-4xl border-b-2 border-gray4;
+    }
+
+    h2 {
+      @apply text-3xl border-b-2 border-gray4;
+    }
+
+    h3 {
+      @apply text-2xl;
+    }
+
+    h4 {
+      @apply text-xl;
+    }
+
+    h5 {
+      @apply text-lg;
+    }
+
+    h6 {
+      @apply text-base;
+    }
   }
 }
