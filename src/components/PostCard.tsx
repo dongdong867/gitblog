@@ -18,12 +18,16 @@ const PostCard = ({ post }: { post: Issue }) => {
         <div className={cn("space-y-1 md:space-y-2")}>
           <PostLabel labels={post.labels} />
 
-          <div className={cn("text-xl md:text-3xl font-semibold tracking-tight")}>
+          {/* POST TITLE */}
+          <div
+            className={cn("text-xl md:text-3xl font-semibold tracking-tight")}
+          >
             {post.title}
           </div>
 
+          {/* POST BODY */}
           <div
-            dangerouslySetInnerHTML={{ __html: marked.parse(post.body) }}
+            dangerouslySetInnerHTML={{ __html: marked.parse(post.body ?? "") }}
             className={cn("text-base line-clamp-2 leading-tight")}
           />
         </div>
