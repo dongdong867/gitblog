@@ -5,22 +5,22 @@
 @layer base {
   pre {
     @apply block bg-gray6 px-4 py-2 rounded-md text-clip overflow-hidden overflow-x-scroll;
+
+    code {
+      @apply bg-transparent dark:bg-transparent m-0 p-0;
+    }
   }
 
   code {
     @apply bg-gray5 dark:bg-gray4 px-1.5 py-1 text-xs text-balance rounded-lg;
   }
 
-  pre code {
-    @apply bg-transparent dark:bg-transparent m-0 p-0;
-  }
-
   p {
     @apply my-2;
-  }
 
-  p a {
-    @apply text-blue;
+    a {
+      @apply text-blue;
+    }
   }
 
   hr {
