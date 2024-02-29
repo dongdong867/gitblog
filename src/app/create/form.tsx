@@ -1,7 +1,7 @@
 "use client";
 
 // actions
-import { createPost } from "@/actions/create-post";
+import { createPost } from "@/actions/post.post";
 // components
 import { Input } from "@/components/ui/input";
 import PostBodyEditor from "@/components/PostBodyEditor";
