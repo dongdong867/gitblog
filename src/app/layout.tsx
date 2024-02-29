@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./colors.css";
 import "./globals.css";
-import "./hljs.css"
+import "./hljs.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import Navbar from "@/components/navbar/Navbar";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main>{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
