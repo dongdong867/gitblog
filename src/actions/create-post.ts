@@ -13,20 +13,23 @@ type CreatePostType = {
 }
 
 export const createPost = async (
-  prevState: { error: string },
+  prevState: {
+    name: string,
+    error: string
+  },
   formData: FormData
 ) => {
   
   // validate title
   const title = formData.get("title") as string
   if (title == "") {
-    return { error: "Title can not be empty."}
+    return { name: "title", error: "Title can not be empty."}
   }
   
   // validate body
   const body = formData.get("body") as string
   if (body.length < 30) {
-    return { error: "Body should be more then 30 words." }
+    return { name: "body", error: "Body should be more then 30 words." }
   }
 
   const label = formData.get("label") as string
@@ -44,7 +47,7 @@ export const createPost = async (
   })
 
   await octokit.rest.issues.create(post).catch(err => {
-    return { error: err }
+    return { name: "other", error: err }
   })
 
   // redirect to home when create finished
