@@ -6,8 +6,11 @@ import Avatar from "./Avatar";
 import Image from "next/image";
 import ThemeToggle from "../ThemeToggle";
 import CreatePostLink from "./CreatePostLink";
+import { auth } from "@/auth";
 
 const Navbar = async () => {
+  const session = await auth();
+
   return (
     <div className={cn("size-full p-2 bg-gray6")}>
       <div
@@ -32,10 +35,10 @@ const Navbar = async () => {
 
         <div className={cn("flex place-items-center space-x-2")}>
           <div className={cn("size-full flex place-items-center")}>
-            <CreatePostLink />
+            {session && <CreatePostLink />}
             <ThemeToggle />
           </div>
-          <Avatar />
+          <Avatar session={session} />
         </div>
       </div>
     </div>

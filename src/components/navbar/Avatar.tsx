@@ -3,10 +3,9 @@ import { auth } from "@/auth";
 import { cn } from "@/lib/utils";
 import UserDropdown from "./UserDropdown";
 import LoginDropdown from "./LoginDropdown";
+import { Session } from "next-auth";
 
-const Avatar = async () => {
-  const session = await auth();
-
+const Avatar = ({session}: {session: Session | null}) => {
   return session ? (
     <UserDropdown
       imageLink={session.user?.image ?? ""}
