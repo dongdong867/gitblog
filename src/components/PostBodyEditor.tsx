@@ -7,11 +7,11 @@ import { Textarea } from "./ui/textarea";
 import { adjustedHeight, getBodyEditedValue } from "@/lib/post-body";
 import { marked } from "@/lib/marked";
 
-const PostBodyEditor = () => {
+const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
   const [showPreview, setShowPreview] = useState(false);
 
   return (
-    <div className={cn("py-4 space-y-4")}>
+    <div className={cn("pt-4 space-y-4")}>
       <div className={cn("flex place-items-center space-x-2 font-medium")}>
         <Switch
           id="show-preview"
@@ -27,7 +27,7 @@ const PostBodyEditor = () => {
         rows={5}
         onChange={() => adjustedHeight()}
         placeholder="Add post body here..."
-        className={cn("font-mono resize-none", { hidden: showPreview })}
+        className={cn("font-mono resize-none", { hidden: showPreview }, {"border-2 border-red": hasError})}
       />
 
       <div className={cn("preview")}>
