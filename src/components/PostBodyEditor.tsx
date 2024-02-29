@@ -9,6 +9,7 @@ import { marked } from "@/lib/marked";
 
 const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
   const [showPreview, setShowPreview] = useState(false);
+  const [preview, setPreview] = useState("")
 
   return (
     <div className={cn("pt-4 space-y-4")}>
@@ -16,7 +17,10 @@ const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
         <Switch
           id="show-preview"
           checked={showPreview}
-          onCheckedChange={(checked) => setShowPreview(checked)}
+          onCheckedChange={(checked) => {
+            setPreview(getBodyEditedValue())
+            setShowPreview(checked)
+          }}
         />
         <label htmlFor="show-preview">Show Preview</label>
       </div>
@@ -33,7 +37,7 @@ const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
       <div className={cn("preview")}>
         <div
           dangerouslySetInnerHTML={{
-            __html: marked.parse(getBodyEditedValue()),
+            __html: marked.parse(preview),
           }}
           className={cn({ hidden: !showPreview })}
         />
