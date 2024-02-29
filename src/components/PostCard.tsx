@@ -3,14 +3,14 @@ import Link from "next/link";
 import { BiMessageDetail } from "react-icons/bi";
 // utils
 import { cn } from "@/lib/utils";
-import { marked } from "marked";
 import PostLabel from "./PostLabel";
 import UserLabel from "./UserLabel";
+import { marked } from "@/lib/marked";
 
 const PostCard = ({ post }: { post: Issue }) => {
   return (
     <Link href={"/" + post.number}>
-      <div className={cn("container max-w-[1000px] space-y-4 py-4 text-sm")}>
+      <div className={cn("size-full space-y-4 py-4 text-sm")}>
         {/* USER */}
         <UserLabel size={30} user={post.user} />
 
@@ -18,12 +18,12 @@ const PostCard = ({ post }: { post: Issue }) => {
         <div className={cn("space-y-1 md:space-y-2")}>
           <PostLabel labels={post.labels} />
 
-          <div className={cn("text-xl md:text-2xl font-semibold")}>
+          <div className={cn("text-xl md:text-3xl font-semibold tracking-tight")}>
             {post.title}
           </div>
 
           <div
-            dangerouslySetInnerHTML={{ __html: marked(post.body) }}
+            dangerouslySetInnerHTML={{ __html: marked.parse(post.body) }}
             className={cn("text-base line-clamp-2 leading-tight")}
           />
         </div>
