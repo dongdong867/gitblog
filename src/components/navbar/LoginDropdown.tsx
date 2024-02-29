@@ -26,12 +26,9 @@ const LoginDropdown = () => {
           <MdFace className={cn("size-10 text-primary")} />
         </Button>
       </DropdownMenuTrigger>
-      
+
       <DropdownMenuContent align="end">
-        <DropdownMenuItem
-          onClick={() => signIn("github")}
-          className="text-base"
-        >
+        <DropdownMenuItem onClick={() => signIn("github")}>
           Login with GitHub
         </DropdownMenuItem>
       </DropdownMenuContent>
