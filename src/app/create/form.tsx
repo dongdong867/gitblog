@@ -5,7 +5,7 @@ import { createPost } from "@/actions/create-post";
 // components
 import { Input } from "@/components/ui/input";
 import PostBodyEditor from "@/components/PostBodyEditor";
-import CreatePostButton from "@/components/CreatePostButton";
+import SubmitButton from "@/components/SubmitButton";
 // hooks
 import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
@@ -68,7 +68,7 @@ const CreatePostForm = () => {
       {/* Body */}
       <PostBodyEditor hasError={bodyError} />
       {/* Submit */}
-      <CreatePostButton />
+      <SubmitButton label={"Create Post"} />
     </form>
   );
 };
