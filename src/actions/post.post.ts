@@ -1,53 +1,48 @@
-"use server"
+"use server";
 
-import { SessionWithToken, auth } from "@/auth"
-import { getOctokit } from "@/lib/octokit"
-import { redirect } from "next/navigation"
-import { Octokit } from "octokit"
+import { getOctokit } from "@/lib/octokit";
+import { validatePost } from "@/lib/post-validation";
+import { redirect } from "next/navigation";
 
-type CreatePostType = {
-  owner: string
-  repo: string
-  title: string
-  body: string
-  labels: string[] | undefined
-}
+type CreatePostTypes = {
+  owner: string;
+  repo: string;
+  title: string;
+  body: string;
+  labels: string[] | undefined;
+};
 
 export const createPost = async (
   prevState: {
-    name: string,
-    error: string
+    postNumber?: number;
+    name: string;
+    error: string;
   },
   formData: FormData
 ) => {
+  const title = formData.get("title") as string;
+  const body = formData.get("body") as string;
   
   // validate title
-  const title = formData.get("title") as string
-  if (title == "") {
-    return { name: "title", error: "Title can not be empty."}
-  }
-  
-  // validate body
-  const body = formData.get("body") as string
-  if (body.length < 30) {
-    return { name: "body", error: "Body should be more then 30 words." }
+  const { result, data } = validatePost(prevState.postNumber, title, body);
+  if (!result) {
+    return data;
   }
 
-  const label = formData.get("label") as string
-  const post: CreatePostType = {
+  const label = formData.get("label") as string;
+  const post: CreatePostTypes = {
     owner: process.env.GITHUB_USER_NAME as string,
     repo: process.env.GITHUB_REPO_NAME as string,
     title: title,
     body: body,
-    labels: label.length > 0 ? [label] : undefined
-  }
-  
-  const octokit = await getOctokit()
+    labels: label.length > 0 ? [label] : undefined,
+  };
 
-  await octokit.rest.issues.create(post).catch(err => {
-    return { name: "other", error: err }
-  })
+  const octokit = await getOctokit();
+  await octokit.rest.issues.create(post).catch((err) => {
+    return { name: "other", error: err };
+  });
 
   // redirect to home when create finished
-  redirect("/")
-}
+  redirect("/");
+};
