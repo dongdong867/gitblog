@@ -1,11 +1,9 @@
 "use client";
 
-// actions
-import { createPost } from "@/actions/post.post";
 // components
-import { Input } from "@/components/ui/input";
-import PostBodyEditor from "@/components/PostBodyEditor";
-import SubmitButton from "@/components/SubmitButton";
+import { Input } from "../ui/input";
+import SubmitButton from "./SubmitButton";
+import PostBodyEditor from "./PostBodyEditor";
 // hooks
 import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
@@ -13,15 +11,36 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import toast from "react-hot-toast";
 
-const initialState = {
-  name: "",
-  error: "",
+type EditPostFormProps = {
+  post?: Issue;
+  actionLabel: "Create" | "Update";
+  action: (
+    prevState: {
+      postNumber?: number;
+      name: string;
+      error: string;
+    },
+    formData: FormData
+  ) => Promise<{
+    postNumber?: number;
+    name: string;
+    error: string;
+  }>;
 };
 
-export const CreatePostForm = () => {
+const initialState = (postNumber: number) => {
+  return {
+    postNumber: postNumber,
+    name: "",
+    error: "",
+  };
+};
+
+const EditPostForm = ({ post, actionLabel, action }: EditPostFormProps) => {
   const [titleError, setTitleError] = useState(false);
   const [bodyError, setBodyError] = useState(false);
-  const [state, formAction] = useFormState(createPost, initialState);
+
+  const [state, formAction] = useFormState(action, initialState(post?.number ?? 0));
 
   useEffect(() => {
     setTitleError(false);
@@ -53,6 +72,7 @@ export const CreatePostForm = () => {
           id="post-title"
           name="title"
           placeholder="Title"
+          defaultValue={post?.title}
           className={cn({ "border-2 border-red": titleError })}
         />
       </div>
@@ -62,13 +82,18 @@ export const CreatePostForm = () => {
         <label htmlFor="post-title" className={cn("text-sm font-medium")}>
           Label:
         </label>
-        <Input id="post-label" name="label" placeholder="Enter label name" />
+        <Input
+          id="post-label"
+          name="label"
+          placeholder="Enter label name"
+          defaultValue={post?.labels[0].name}
+        />
       </div>
 
-      {/* Body */}
-      <PostBodyEditor hasError={bodyError} />
-      {/* Submit */}
-      <SubmitButton label={"Create Post"} />
+      <PostBodyEditor defaultValue={post?.body} hasError={bodyError} />
+      <SubmitButton label={`${actionLabel} Post`} />
     </form>
   );
 };
+
+export default EditPostForm;
