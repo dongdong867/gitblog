@@ -1,5 +1,7 @@
-import { cn } from "@/lib/utils";
+// components
 import { Skeleton } from "../ui/skeleton";
+// utils
+import { cn } from "@/lib/utils";
 
 const PostCardSkeleton = () => {
   return (
