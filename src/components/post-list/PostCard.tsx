@@ -20,7 +20,7 @@ const PostCard = ({ post }: { post: Issue }) => {
 
           {/* POST TITLE */}
           <div
-            className={cn("text-xl md:text-3xl font-semibold tracking-tight")}
+            className={cn("text-2xl md:text-3xl font-semibold tracking-tight")}
           >
             {post.title}
           </div>
