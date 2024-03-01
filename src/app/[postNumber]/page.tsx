@@ -11,10 +11,20 @@ import { Separator } from "@/components/ui/separator";
 // utils
 import { cn } from "@/lib/utils";
 import { marked } from "@/lib/marked";
+import { auth } from "@/auth";
+import { getUser } from "@/actions/user.get";
 
 const PostPage = async ({ params }: { params: { postNumber: number } }) => {
   const post = await getPost(params.postNumber);
   const messages = await getMessages(params.postNumber, 1);
+
+  let showOptions;
+  const session = await auth();
+  if (session) {
+    showOptions = (await getUser()).login == post.user.login;
+  } else {
+    showOptions = false;
+  }
 
   return (
     <div className={cn("container max-w-[1000px] space-y-8 py-8")}>
@@ -26,7 +36,7 @@ const PostPage = async ({ params }: { params: { postNumber: number } }) => {
           )}
         >
           <BackLink createAt={post.created_at} />
-          <Options postNumber={params.postNumber} />
+          {showOptions && <Options postNumber={params.postNumber} />}
         </div>
         <Title labels={post.labels} title={post.title} />
         <Author user={post.user} />
