@@ -1,6 +1,10 @@
-import { cn } from "@/lib/utils";
-import { CreatePostForm } from "./form";
+// actions
+import { createPost } from "@/actions/create-post.post";
+// components
+import EditPostForm from "@/components/edit-post/EditPostForm";
+// utils
 import { auth } from "@/auth";
+import { cn } from "@/lib/utils";
 import { redirect } from "next/navigation";
 
 const CreatePostPage = async () => {
@@ -14,7 +18,7 @@ const CreatePostPage = async () => {
       <div className={cn("text-3xl font-semibold tracking-tight")}>
         Create Post
       </div>
-      <CreatePostForm />
+      <EditPostForm actionLabel={"Create"} action={createPost} />
     </div>
   );
 };
