@@ -1,10 +1,10 @@
 // components
 import Link from "next/link";
+import UserLabel from "../UserLabel";
+import PostLabel from "../PostLabel";
 import { BiMessageDetail } from "react-icons/bi";
 // utils
 import { cn } from "@/lib/utils";
-import PostLabel from "./PostLabel";
-import UserLabel from "./UserLabel";
 import { marked } from "@/lib/marked";
 
 const PostCard = ({ post }: { post: Issue }) => {
