@@ -13,7 +13,7 @@ const UserLabel = ({ size, user }: { size: number; user: User }) => {
         height={size}
         className={cn("rounded-full")}
       />
-      <div>{user.login}</div>
+      <div className={cn("text-sm font-medium md:text-base")}>{user.login}</div>
     </div>
   );
 };
