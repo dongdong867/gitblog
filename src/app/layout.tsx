@@ -1,7 +1,7 @@
 // css files
-import "./hljs.css";    // markdown code block syntax color
-import "./colors.css";  // custom color variable names
-import "./globals.css";
+import "@/styles/hljs.css";    // markdown code block syntax color
+import "@/styles/colors.css";  // custom color variable names
+import "@/styles/globals.css";
 // components
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/navbar/Navbar";
