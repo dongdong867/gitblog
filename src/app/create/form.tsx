@@ -18,7 +18,7 @@ const initialState = {
   error: "",
 };
 
-const CreatePostForm = () => {
+export const CreatePostForm = () => {
   const [titleError, setTitleError] = useState(false);
   const [bodyError, setBodyError] = useState(false);
   const [state, formAction] = useFormState(createPost, initialState);
@@ -72,5 +72,3 @@ const CreatePostForm = () => {
     </form>
   );
 };
-
-export default CreatePostForm;
