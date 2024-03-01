@@ -1,6 +1,7 @@
 "use server"
 
 import { SessionWithToken, auth } from "@/auth"
+import { getOctokit } from "@/lib/octokit"
 import { redirect } from "next/navigation"
 import { Octokit } from "octokit"
 
@@ -41,10 +42,7 @@ export const createPost = async (
     labels: label.length > 0 ? [label] : undefined
   }
   
-  const session = (await auth()) as SessionWithToken
-  const octokit = new Octokit({
-    auth: session.accessToken
-  })
+  const octokit = await getOctokit()
 
   await octokit.rest.issues.create(post).catch(err => {
     return { name: "other", error: err }

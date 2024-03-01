@@ -1,17 +1,9 @@
 import { SessionWithToken, auth } from "@/auth"
+import { getOctokit } from "@/lib/octokit"
 import { Octokit } from "octokit"
 
 export const getPosts = async (page: number): Promise<Issue[]> => {
-  const session = (await auth()) as SessionWithToken
-  
-  let octokit: Octokit
-  if (session) {
-    octokit = new Octokit({
-      auth: session.accessToken
-    })
-  } else {
-    octokit = new Octokit()
-  }
+  const octokit = await getOctokit()
 
   const res = await octokit.rest.issues.listForRepo({
     owner: process.env.GITHUB_USER_NAME as string,
