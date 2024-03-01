@@ -40,7 +40,10 @@ const EditPostForm = ({ post, actionLabel, action }: EditPostFormProps) => {
   const [titleError, setTitleError] = useState(false);
   const [bodyError, setBodyError] = useState(false);
 
-  const [state, formAction] = useFormState(action, initialState(post?.number ?? 0));
+  const [state, formAction] = useFormState(
+    action,
+    initialState(post?.number ?? 0)
+  );
 
   useEffect(() => {
     setTitleError(false);
