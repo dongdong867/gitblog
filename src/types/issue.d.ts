@@ -3,7 +3,7 @@ interface Issue {
   title: string
   body: string
   created_at: string
-  state: "open" | "close"
+  state: "open" | "closed"
   comments: number
   user: User
   labels: Label[]
