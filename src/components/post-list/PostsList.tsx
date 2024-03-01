@@ -13,7 +13,7 @@ import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 
 const PostsList = ({ defaultPosts }: { defaultPosts: Issue[] }) => {
-  const [hasMore, setHasMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(2);
   const [posts, setPosts] = useState(defaultPosts);
   const { ref, inView } = useInView();
