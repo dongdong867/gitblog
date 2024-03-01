@@ -13,7 +13,7 @@ export const Title = ({
   return (
     <div className={cn("space-y-2")}>
       <PostLabel labels={labels} />
-      <div className={cn("text-5xl font-bold tracking-tight")}>{title}</div>
+      <div className={cn("text-3xl md:text-5xl font-bold tracking-tight")}>{title}</div>
     </div>
   );
 };

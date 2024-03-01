@@ -4,7 +4,7 @@
 import { Switch } from "../ui/switch";
 import { Textarea } from "../ui/textarea";
 // hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // utils
 import { cn } from "@/lib/utils";
 import { marked } from "@/lib/marked";
@@ -20,8 +20,12 @@ const PostBodyEditor = ({
   const [showPreview, setShowPreview] = useState(false);
   const [preview, setPreview] = useState("");
 
+  useEffect(() => {
+    adjustedHeight()
+  }, []);
+
   return (
-    <div className={cn("pt-4 space-y-4")}>
+    <div className={cn("py-4 space-y-4")}>
       <div className={cn("flex place-items-center space-x-2 font-medium")}>
         <Switch
           id="show-preview"
@@ -48,12 +52,11 @@ const PostBodyEditor = ({
         )}
       />
 
-      <div className={cn("preview")}>
+      <div className={cn("min-h-10 preview rounded-md", "border border-slate-200 dark:border-gray3", {hidden: !showPreview})}>
         <div
           dangerouslySetInnerHTML={{
             __html: marked.parse(preview),
           }}
-          className={cn({ hidden: !showPreview })}
         />
       </div>
     </div>

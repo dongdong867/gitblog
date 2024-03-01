@@ -42,7 +42,7 @@ export const Messages = ({
 
   return (
     <div>
-      <div className={cn("text-3xl font-semibold tracking-tight pb-4")}>
+      <div className={cn("text-2xl md:text-3xl font-semibold tracking-tight pb-4")}>
         Comments ({messages.length})
       </div>
       {messages.map((message) => {
