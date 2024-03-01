@@ -1,7 +1,10 @@
 "use client";
 
+// components
+import { Button } from "../ui/button";
+// hooks
 import { useFormStatus } from "react-dom";
-import { Button } from "./ui/button";
+// utils
 import { cn } from "@/lib/utils";
 
 const SubmitButton = ({ label }: { label: string }) => {
@@ -11,7 +14,9 @@ const SubmitButton = ({ label }: { label: string }) => {
     <Button
       type="submit"
       disabled={pending}
-      className={cn("bg-primary dark:bg-blue dark:text-foreground dark:hover:bg-[rgb(0,122,255)]/80")}
+      className={cn(
+        "bg-primary dark:bg-blue dark:text-foreground dark:hover:bg-[rgb(0,122,255)]/80"
+      )}
     >
       <div>{label}</div>
     </Button>

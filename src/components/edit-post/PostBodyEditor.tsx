@@ -1,15 +1,24 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { Switch } from "./ui/switch";
+// components
+import { Switch } from "../ui/switch";
+import { Textarea } from "../ui/textarea";
+// hooks
 import { useState } from "react";
-import { Textarea } from "./ui/textarea";
-import { adjustedHeight, getBodyEditedValue } from "@/lib/post-body";
+// utils
+import { cn } from "@/lib/utils";
 import { marked } from "@/lib/marked";
+import { adjustedHeight, getBodyEditedValue } from "@/lib/post-body";
 
-const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
+const PostBodyEditor = ({
+  defaultValue,
+  hasError,
+}: {
+  defaultValue?: string;
+  hasError: boolean;
+}) => {
   const [showPreview, setShowPreview] = useState(false);
-  const [preview, setPreview] = useState("")
+  const [preview, setPreview] = useState("");
 
   return (
     <div className={cn("pt-4 space-y-4")}>
@@ -18,8 +27,8 @@ const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
           id="show-preview"
           checked={showPreview}
           onCheckedChange={(checked) => {
-            setPreview(getBodyEditedValue())
-            setShowPreview(checked)
+            setPreview(getBodyEditedValue());
+            setShowPreview(checked);
           }}
         />
         <label htmlFor="show-preview">Show Preview</label>
@@ -31,7 +40,12 @@ const PostBodyEditor = ({ hasError }: { hasError: boolean }) => {
         rows={5}
         onChange={() => adjustedHeight()}
         placeholder="Add post body here..."
-        className={cn("font-mono resize-none", { hidden: showPreview }, {"border-2 border-red": hasError})}
+        defaultValue={defaultValue}
+        className={cn(
+          "font-mono resize-none",
+          { hidden: showPreview },
+          { "border-2 border-red": hasError }
+        )}
       />
 
       <div className={cn("preview")}>
