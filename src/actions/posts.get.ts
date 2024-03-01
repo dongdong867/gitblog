@@ -1,6 +1,6 @@
-import { SessionWithToken, auth } from "@/auth"
+"use server"
+
 import { getOctokit } from "@/lib/octokit"
-import { Octokit } from "octokit"
 
 export const getPosts = async (page: number): Promise<Issue[]> => {
   const octokit = await getOctokit()

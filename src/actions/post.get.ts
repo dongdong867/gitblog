@@ -1,3 +1,5 @@
+"use server"
+
 import { getOctokit } from "@/lib/octokit"
 
 export const getPost = async (postNumber: number): Promise<Issue> => {
