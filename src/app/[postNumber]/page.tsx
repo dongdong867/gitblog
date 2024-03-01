@@ -14,7 +14,7 @@ import { marked } from "@/lib/marked";
 
 const PostPage = async ({ params }: { params: { postNumber: number } }) => {
   const post = await getPost(params.postNumber);
-  const messages = await getMessages(params.postNumber);
+  const messages = await getMessages(params.postNumber, 1);
 
   return (
     <div className={cn("container max-w-[1000px] space-y-8 py-8")}>
@@ -38,7 +38,7 @@ const PostPage = async ({ params }: { params: { postNumber: number } }) => {
       />
 
       <Separator />
-      <Messages messages={messages} />
+      <Messages postNumber={params.postNumber} defaultMessages={messages} />
     </div>
   );
 };
