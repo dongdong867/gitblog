@@ -1,5 +1,6 @@
 "use client";
 
+import { deletePost } from "@/actions/delete-post.patch";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -28,6 +29,7 @@ export const Options = ({ postNumber }: { postNumber: number }) => {
           <Link href={`${postNumber}/edit`}>Edit</Link>
         </DropdownMenuItem>
         <DropdownMenuItem
+          onClick={async () => await deletePost(postNumber)}
           className={cn(
             "text-red focus:text-white focus:bg-red",
             "dark:focus:text-white dark:focus:bg-red"
