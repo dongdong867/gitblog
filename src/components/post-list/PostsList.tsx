@@ -13,7 +13,7 @@ import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 
 const PostsList = ({ defaultPosts }: { defaultPosts: Issue[] }) => {
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(defaultPosts.length == 10);
   const [page, setPage] = useState(2);
   const [posts, setPosts] = useState(defaultPosts);
   const { ref, inView } = useInView();
@@ -50,7 +50,9 @@ const PostsList = ({ defaultPosts }: { defaultPosts: Issue[] }) => {
             <PostCardSkeleton />
           </div>
         ) : (
-          <div className={cn("py-8 text-center text-gray3 font-medium")}>No more posts!</div>
+          <div className={cn("py-8 text-center text-gray3 font-medium")}>
+            No more posts!
+          </div>
         )}
       </div>
     </>
