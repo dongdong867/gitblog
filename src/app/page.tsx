@@ -9,7 +9,7 @@ const HomePage = async () => {
   const posts = await getPosts(1);
 
   return (
-    <div className={cn("container h-screen max-w-[1000px] overflow-y-scroll")}>
+    <div className={cn("container max-w-[1000px]")}>
       <PostsList defaultPosts={posts} />
     </div>
   );

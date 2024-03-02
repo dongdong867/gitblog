@@ -89,7 +89,7 @@ const EditPostForm = ({ post, actionLabel, action }: EditPostFormProps) => {
           id="post-label"
           name="label"
           placeholder="Enter label name"
-          defaultValue={post?.labels[0].name}
+          defaultValue={post && post.labels.length > 0 ? post.labels[0].name : ""}
         />
       </div>
 
