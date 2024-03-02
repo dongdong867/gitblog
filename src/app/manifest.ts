@@ -6,7 +6,7 @@ const manifest = (): MetadataRoute.Manifest => {
     description: "A markdown supported GitHub blog.",
     start_url: "/",
     background_color: "#fff",
-    theme_color: "#fff",
+    theme_color: "#2D699F",
     icons: [
       {
         src: "/icon.ico",
