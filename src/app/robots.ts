@@ -9,3 +9,5 @@ const robots = (): MetadataRoute.Robots => {
     },
   };
 };
+
+export default robots
