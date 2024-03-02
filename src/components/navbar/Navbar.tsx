@@ -16,7 +16,7 @@ const Navbar = async () => {
       <div
         className={cn("w-11/12 flex justify-between place-items-center m-auto")}
       >
-        <Link href={"/"}>
+        <Link href={"/"} aria-label="Back to home page">
           <Image
             src={"/icon.png"}
             alt=""

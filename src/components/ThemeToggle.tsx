@@ -35,6 +35,7 @@ const ThemeToggle = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
+          aria-label="theme-toggle"
           variant={"ghost"}
           size={"icon"}
           className="size-10 rounded-full"
