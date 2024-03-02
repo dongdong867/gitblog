@@ -29,7 +29,7 @@ export const Messages = ({
     if (hasMore && inView) {
       loadMore();
     }
-  }, [inView]);
+  }, [hasMore, inView]);
 
   const loadMore = async () => {
     const addition = await getMessages(postNumber, page);

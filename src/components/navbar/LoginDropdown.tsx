@@ -19,6 +19,7 @@ const LoginDropdown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
+          aria-label="login"
           variant={"ghost"}
           size={"icon"}
           className="size-10 bg-white rounded-full"

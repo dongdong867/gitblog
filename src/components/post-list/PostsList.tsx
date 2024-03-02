@@ -22,7 +22,7 @@ const PostsList = ({ defaultPosts }: { defaultPosts: Issue[] }) => {
     if (hasMore && inView) {
       loadMore();
     }
-  }, [inView]);
+  }, [hasMore, inView]);
 
   const loadMore = async () => {
     const addition = await getPosts(page);
