@@ -9,7 +9,7 @@ const Message = ({ message }: { message: Message }) => {
     <div className={cn("py-4 space-y-4")}>
       <div className={cn("flex justify-between place-items-center")}>
         <UserLabel size={40} user={message.user} />
-        <div className={cn("pr-4 text-gray text-sm")}>
+        <div className={cn("pr-4 text-gray text-xs md:text-sm")}>
           {new Date(message.created_at).toLocaleString()}
         </div>
       </div>
