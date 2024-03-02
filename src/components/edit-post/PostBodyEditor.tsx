@@ -52,7 +52,7 @@ const PostBodyEditor = ({
         )}
       />
 
-      <div className={cn("min-h-10 preview rounded-md", "border border-slate-200 dark:border-gray3", {hidden: !showPreview})}>
+      <div className={cn("min-h-10 preview rounded-md px-3", "border border-slate-200 dark:border-gray3", {hidden: !showPreview})}>
         <div
           dangerouslySetInnerHTML={{
             __html: marked.parse(preview),
