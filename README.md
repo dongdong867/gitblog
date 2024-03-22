@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a name="readme-top"></a>
 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/dongdong867/gitblog">
+    <img src="/public/icon.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h2 align="center">Gitblog</h2>
+
+  <p align="center">
+    A markdown supported blog based on github issues.
+    <br />
+    <a href="https://gitblog.dongdong867.dev">Project Site</a>
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#development">Development</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Product Screen Shot][product-screenshot]](https://example.com)
+
+### Built With
+
+- Nextjs (App Routers)
+- React
+- TailwindCSS
+- Shadcn-ui
+- GitHub API
+- Vercel
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+To get start with this project, please follow the following instructions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project uses **[bun](https://bun.sh)** as default package manager.
+Follow the installation document on bun's official site or setup your own package manager.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repo
 
-## Learn More
+   ```sh
+   git clone https://github.com/dongdong867/gitblog.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Create an `OAuth app` in `GitHub > Settings > Developer Settings` and create a client id and secret.
+3. Create a `Next Auth Secret`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```sh
+   openssl rand -base64 32
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Create an `.env.local` file and insert the below items.
 
-## Deploy on Vercel
+   ```properties
+   AUTH_GITHUB_ID=<OAUTH_APP_CLIENT_ID>
+   AUTH_GITHUB_SECRET=<OAUTH_APP_CLIENT_SECRET>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   NEXTAUTH_SECRET=<NEXT_AUTH_SECRET_CREATED>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   GITHUB_USER_NAME=<GITHUB_USER_NAME_OF_THE_REPO>
+   GITHUB_REPO_NAME=<GITHUB_REPO_NAME>
+   ```
+
+5. Install packages
+
+   ```sh
+   bun install
+   ```
+
+### Development
+
+**Before starting the development, please make sure the steps above are completed successfully.**
+
+1. Start the development server.
+
+   ```sh
+   bun run dev
+   ```
+
+2. Open address [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Deployment
+
+This project is default deployed on **[Vercel](https://vercel.org)**, but there should be no conflict to create a dockerfile or docker-compose file and deploy the project with **[Docker](https://docker.com)**.
+
+**Please remember to add _ALL_ of the properties in your `.env.local` file to the environment variables setting if deploying with vercel.**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] GitHub login with the correct scope.
+- [x] Post management implemented with GitHub issues.
+- [x] User Interface
+  - [x] Posts page with infinite scroll.
+  - [x] Editable content page that supports markdown language.
+  - [x] Form validation when create and edit post.
+
+See the [Dcard Frontend Homework](https://drive.google.com/file/d/1x5l_hC5c26MauhTpACwGaa2nBUDo5uad/view) for a full list of requirements.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## Project Structure
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
