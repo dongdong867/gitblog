@@ -36,14 +36,23 @@
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#folder-structure">Folder Structure</a></li>
+    <li>
+      <a href="#version-control">Version Control</a>
+      <ul>
+        <li><a href="#branching">Branching</a></li>
+        <li><a href="#committing">Committing</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Screen Shot][product-screenshot]](https://example.com)
+<div align="center">
+  <img src="/public/screenshot.png" alt="Logo" width="600">
+</div>
 
 ### Built With
 
@@ -133,7 +142,59 @@ See the [Dcard Frontend Homework](https://drive.google.com/file/d/1x5l_hC5c26Mau
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGMENTS -->
-## Project Structure
+<!-- FOLDER STRUCTURE -->
+## Folder Structure
+
+The folder structure of this project is based on `App Router` from [Next.js](https://nextjs.org), detail is shown in the folder tree below.
+
+```plaintext
+gitblog/
+|-- public/
+|   (Store public assets used in the project. e.g. images, logo)
+|-- src/
+|   |-- actions/
+|   |   (Store all api endpoints and connections)
+|   |-- app/
+|   |   |-- components/
+|   |   |   (Store page specific components)
+|   |   |-- manifest.ts
+|   |   |   (PWA settings)
+|   |   |-- robot.ts
+|   |       (Settings for search engine crawlers)
+|   |-- components/
+|   |   (Globally reusable components)
+|   |   |-- ui/
+|   |       (shadcn-ui components)
+|   |-- lib/
+|   |   (Store utilities and package usages)
+|   |-- styles/
+|   |   (Store all css files)
+|   |-- types/
+|   |   (Store all general types used in the project)
+|   |-- auth.ts
+|       (Next Auth settings that handles GitHub OAuth login process)
+|-- .env.local
+|   (Store environment variables used locally in project)
+|-- components.json
+    (Shadcn-ui settings)
+```
+
+Visit [Next.js Documentation](https://nextjs.org/docs) to see more about folder structure.
+
+## Version Control
+
+### Branching
+
+```plaintext
+[BRANCH_TYPE]/[Target/ Intent]
+BRANCH_TYPE= [feat, fix, refactor, chore]
+```
+
+### Committing
+
+```plaintext
+[COMMIT_TYPE](Target/ Intent): Description
+COMMIT_TYPE= [feat, fix, style, refactor, chore]
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
