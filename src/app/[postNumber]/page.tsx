@@ -44,6 +44,7 @@ const PostPage = async ({ params }: { params: { postNumber: number } }) => {
 
       {/* Body */}
       <div
+        className={cn("preview")}
         dangerouslySetInnerHTML={{ __html: marked.parse(post.body ?? "") }}
       />
 
