@@ -15,7 +15,7 @@ const Message = ({ message }: { message: Message }) => {
       </div>
       <div
         dangerouslySetInnerHTML={{ __html: marked.parse(message.body) }}
-        className={cn("px-4 text-sm")}
+        className={cn("px-4 text-sm preview")}
       />
     </div>
   );
